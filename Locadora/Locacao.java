@@ -6,11 +6,20 @@ public class Locacao {
     private String dataDevolucao;
 
     public Locacao(Cliente cliente, Veiculo veiculo, String dataLocacao, String dataDevolucao) {
+
+            if (veiculo.isDisponivel()) {
+                System.out.println("Pode alugar");
+                veiculo.setDisponivel(false);
+                } else {
+                    System.out.println("O carro já tá ocupado.");
+            };
+        
         this.cliente = cliente;
         this.veiculo = veiculo;
         this.dataLocacao = dataLocacao;
         this.dataDevolucao = dataDevolucao;
-    }
+    };
+
 
     public Cliente getCliente() {
         return cliente;
